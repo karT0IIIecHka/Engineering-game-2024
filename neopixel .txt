@@ -1,0 +1,35 @@
+import machine
+import time
+import neopixel
+
+np=neopixel.NeoPixel(machine.Pin(4),16)
+np[0]=[255,0,255]
+def Pix(R,G,B):
+    np[0]=[R,G,B]
+while 1:
+    for G in range(0,255,5):
+        Pix(255,G,0)
+        np.write()
+        time.sleep_ms(1)
+    for G in range(255,0,-5):
+        Pix(G,255,0)
+        np.write()
+        time.sleep_ms(1)
+    for B in range(0,255,5):
+        Pix(0,255,B)
+        np.write()
+        time.sleep_ms(1)
+    for B in range(255,0,-5):
+        Pix(0,B,255)
+        np.write()
+        time.sleep_ms(1)
+    for R in range(0,255,5):
+        Pix(R,0,255)
+        np.write()
+        time.sleep_ms(1)
+    for R in range(255,0,-5):
+        Pix(255,0,R)
+        np.write()
+        time.sleep_ms(1)
+
+
